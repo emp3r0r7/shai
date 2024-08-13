@@ -67,13 +67,13 @@ ls -la
 
 ### Switching Models
 
-If you want to try different AI models, you can change the model variable in the `flaskserver_shai.py` file. Modify the `llama3_data` section as follows, then restart the server:
+If you want to try different AI models, you can change the model variable in the `flaskserver_shai.py` file. Modify the `model` variable, then restart the server:
 
 ```python
-model_data = {
-    "model": "your_model_name_here", //or use a variable
-    "prompt": combined_prompt
-}
+    model_data = {
+        "model": model,
+        "prompt": combined_prompt
+    }
 ```
 
 ## Contributing
