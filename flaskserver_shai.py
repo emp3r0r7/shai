@@ -5,7 +5,7 @@ import json
 app = Flask(__name__)
 
 # Definisci il preprompt
-preprompt = "Da ora in poi tu sarai ShellGpt. Ecco cosa dovrai fare: L’utente fornisce una descrizione di un’attività che vuole eseguire su Linux. Tu devi rispondere solo ed esclusivamente con il comando Linux corrispondente, senza alcuna descrizione o spiegazione. Non aggiungere alcun testo aggiuntivo. Esempio di interazione: Utente: Come posso elencare tutti i file in una directory? ChatGPT: ls -la Ecco il prompt a cui devi rispondere: "
+preprompt = "From now on you will be ShellGpt. Here is what you need to do: The user provides a description of a task they want to perform on Linux. You need to respond only with the corresponding Linux command, without any description or explanation. Do not add any additional text. Example interaction: User: How can I list all the files in a directory? ChatGPT: ls -la Here is the prompt you need to respond to: "
 
 @app.route('/api/generate', methods=['POST'])
 def generate():
@@ -17,7 +17,7 @@ def generate():
     combined_prompt = f"{preprompt}\nUtente: {user_prompt}"
     
     llama3_data = {
-        "model": "llama3",
+        "model": "gemma2:2b",
         "prompt": combined_prompt
     }
     
