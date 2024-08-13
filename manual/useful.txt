@@ -1,9 +1,0 @@
-install ollama
-download model (pref small ones 2gb, 4gb or 5gb
-install jq
-sudo apt install jq 
-
-nohup python flaskserver_shai.py & ; #launch flaskserver headless
-
-export SHAI="/home/kali/Documents/shai/shai.sh"
-alias shai="bash \$SHAI"
