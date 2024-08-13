@@ -1,0 +1,3 @@
+nohup python flaskserver_shai.py & ; #launch flaskserver headless
+alias shai='/home/kali/Desktop/scripts/shai/shai.sh' #adding alias to .zshrc
+sudo apt install jq #necessario per lo script
