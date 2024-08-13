@@ -11,9 +11,11 @@ You can find it here : https://ollama.com/library/gemma2:2b
 After the download of your model, you'll need :
 
 JQ (json manipulation via bash)
+
 python (to run flask)
 
 sudo apt install jq
+
 sudo apt install python3
 
 and add to your .zshrc or .bashrc 
@@ -28,6 +30,7 @@ You can setup a service to start the flaskserver at boot!
 Add SHAI path and alias to bashrc or zshrc
 
 export SHAI="/your_desired_path_here/shai.sh"
+
 alias shai="bash \$SHAI"
 
 reload any opened shell
@@ -41,7 +44,7 @@ output should be : ls -la
 
 The quality of the response depends on the AI model you're using, larger models are more precise and correct while smaller ones are faster but sometimes imprecise or incorrect.
 
-If you want to test other models make sure to change its name in the flaskserver_shai.py file here and restart the server :
+If you want to test other models make sure to change the model variable in the flaskserver_shai.py file here and restart the server :
 
     llama3_data = {
         "model": "gemma2:2b",
