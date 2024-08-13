@@ -1,55 +1,93 @@
-SHAI : (SHELL-AI) Offline AI helper to generate Linux command prompts when asked!
+Sure! Here's a more polished and structured version of your README, suitable for GitHub:
 
-First, a lightweight ollama model is required to run the application.
-You can download ollama here : https://ollama.com/download
+---
 
-After installing Ollama you need a model : https://ollama.com/library
+# SHAI (SHELL-AI) - Offline AI Helper for Generating Linux Commands
 
-I suggest you a light model if you're running on a low specs laptop, Google gemma2b is what im using now.
-You can find it here : https://ollama.com/library/gemma2:2b
+SHAI is an offline AI-powered tool designed to help you generate Linux command prompts on the fly. This lightweight application leverages an Ollama model to deliver quick and accurate command suggestions based on your input.
 
-After the download of your model, you'll need :
+## Prerequisites
 
-JQ (json manipulation via bash)
+Before you begin, ensure you have the following installed:
 
-python (to run flask)
+1. **Ollama**: A lightweight model runner.
+   - Download Ollama here: [Ollama Download](https://ollama.com/download)
+   - Choose a model from the Ollama library: [Ollama Library](https://ollama.com/library)
+     - Recommended model: [Google Gemma2b](https://ollama.com/library/gemma2:2b) for low-spec laptops.
 
-sudo apt install jq
+2. **JQ**: For JSON manipulation via Bash.
+   - Install JQ: `sudo apt install jq`
 
-sudo apt install python3
+3. **Python**: Required to run the Flask server.
+   - Install Python: `sudo apt install python3`
 
-and add to your .zshrc or .bashrc 
+## Installation
 
-move shai.sh and flaskserver_shai.py in a folder of your choice
+1. **Set up the Environment**:
+   - Add the following lines to your `.bashrc` or `.zshrc`:
+     ```bash
+     export SHAI="/your_desired_path_here/shai.sh"
+     alias shai="bash \$SHAI"
+     ```
 
-After that, run :
-python flaskserver_shai.py
+   - Reload your shell configuration:
+     ```bash
+     source /home/your_username/.bashrc
+     # or
+     source /home/your_username/.zshrc
+     ```
 
-You can setup a service to start the flaskserver at boot!
+2. **Move the Files**:
+   - Place `shai.sh` and `flaskserver_shai.py` in a folder of your choice.
 
-Add SHAI path and alias to bashrc or zshrc
+3. **Run the Flask Server**:
+   - Start the Flask server by running:
+     ```bash
+     python flaskserver_shai.py
+     ```
 
-export SHAI="/your_desired_path_here/shai.sh"
+4. (Optional) **Set Up as a Service**:
+   - You can configure the Flask server to start automatically at boot.
 
-alias shai="bash \$SHAI"
+## Usage
 
-reload any opened shell
-source /home/your_username/.bashrc or ./zshrc
+Once everything is set up, you can start using SHAI by typing commands in the following format:
 
-If you have done everything correctly , just prompt :
-shai "list all files in a directory" 
-(remember to use double quotes!)
+```bash
+shai "list all files in a directory"
+```
 
-output should be : ls -la
+The output should be:
 
-The quality of the response depends on the AI model you're using, larger models are more precise and correct while smaller ones are faster but sometimes imprecise or incorrect.
+```bash
+ls -la
+```
 
-If you want to test other models make sure to change the model variable in the flaskserver_shai.py file here and restart the server :
+> **Note**: The quality of the response depends on the AI model you are using. Larger models are generally more accurate but may be slower, while smaller models are faster but may occasionally provide imprecise or incorrect results.
 
-    llama3_data = {
-        "model": "gemma2:2b",
-        "prompt": combined_prompt
-    }
+### Switching Models
 
+If you want to try different AI models, you can change the model variable in the `flaskserver_shai.py` file. Modify the `llama3_data` section as follows, then restart the server:
 
-Have fun!
+```python
+model_data = {
+    "model": "your_model_name_here", //or use a variable
+    "prompt": combined_prompt
+}
+```
+
+## Contributing
+
+Contributions are welcome! Feel free to submit issues or pull requests.
+
+## License
+
+This project is licensed under the MIT License.
+
+---
+
+## Have Fun!
+
+Enjoy using SHAI to simplify your Linux command generation tasks!
+
+---
