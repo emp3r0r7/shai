@@ -1,4 +1,3 @@
-Sure! Here's a more polished and structured version of your README, suitable for GitHub:
 
 ---
 
